@@ -44,6 +44,35 @@
 - **메모리 예산 (Memory Budget)**: 클래스당 특정 수의 샘플을 저장하며, 메모리 예산은 500, 1000, 1500, 2000으로 설정하여 실험하였습니다.
 - 각 클래스에 대해 저장할 샘플 수는 메모리 예산과 총 클래스 수에 따라 계산됩니다. 이를 통해 새 클래스를 학습할 때도 이전 클래스 샘플을 사용할 수 있어 망각을 줄이는 데 도움을 줍니다.
 
+## PyCIL Settings (Original and Modified Settings)
+
+### 원래 PyCIL 세팅값
+- **EPSILON**: `1e-8`
+- **초기 학습 (init_epoch)**: 200 에포크
+- **초기 학습률 (init_lr)**: 0.1
+- **학습률 감소 주기 (init_milestones)**: `[60, 120, 170]`
+- **학습률 감소 비율 (init_lr_decay)**: 0.1
+- **초기 weight decay (init_weight_decay)**: 0.0005
+- **실험 설정 (epochs)**: 170 에포크
+- **학습률 (lrate)**: 0.1
+- **학습률 감소 주기 (milestones)**: `[80, 120]`
+- **학습률 감소 비율 (lrate_decay)**: 0.1
+- **배치 크기 (batch_size)**: 128
+- **weight decay**: `2e-4`
+- **데이터 로딩 워커 수 (num_workers)**: 8
+- **온도 (T)**: 2
+
+### 수정된 PyCIL 세팅값
+- **num_workers**: 4
+- **init_epoch**: 20
+- **epochs**: 20
+
+### 실험에서 사용한 하이퍼파라미터
+- **Memory Budgets**: `[500, 1000, 1500, 2000]`
+- **Exemplar Sizes**: `[20, 50, 100, 200]`
+- **Temperatures**: `[2, 5, 10]`
+- **Batch Sizes**: `[32, 64, 128, 256]`
+
 ## Evaluation
 
 - 각 증분 학습 단계 후 테스트 데이터셋에서 **평균 정확도 (average accuracy)**를 측정하여 성능을 평가합니다.
