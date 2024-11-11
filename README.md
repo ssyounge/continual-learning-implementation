@@ -1,4 +1,5 @@
-# Continual Learning Implementation (iCaRL: Incremental Classifier and Representation Learning)
+# Continual Learning Implementation
+### paper iCaRL: Incremental Classifier and Representation Learning
 
 ## Experimental Setup
 
